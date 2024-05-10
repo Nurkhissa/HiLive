@@ -2,13 +2,12 @@
 {
     public class VideoMetadata
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = new Guid();
         public string Title { get; set; }
         public string Description { get; set; }
         public string BlobPath { get; set; }
         public string Thubnail { get; set; }
-        public DateTimeOffset CreatedDate { get;} 
-        public DateTimeOffset UpdatedDate { get;}
-
+        public DateTimeOffset CreatedDate { get; } = new DateTimeOffset();
+        public DateTimeOffset UpdatedDate { get; } = new DateTimeOffset();
     }
 }
