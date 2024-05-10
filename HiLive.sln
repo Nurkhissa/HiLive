@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{45889ECE-E082-47CD-98C4-3D53921A8AEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiLive.API", "HiLive.API\HiLive.API.csproj", "{8FA135A8-AFD7-46D6-B194-1E01212E4114}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FA135A8-AFD7-46D6-B194-1E01212E4114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FA135A8-AFD7-46D6-B194-1E01212E4114}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FA135A8-AFD7-46D6-B194-1E01212E4114}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FA135A8-AFD7-46D6-B194-1E01212E4114}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8FA135A8-AFD7-46D6-B194-1E01212E4114} = {45889ECE-E082-47CD-98C4-3D53921A8AEB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFF60663-8B98-4FF5-B9F3-970619A6BFA7}
+	EndGlobalSection
+EndGlobal
