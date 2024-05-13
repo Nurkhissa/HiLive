@@ -1,4 +1,9 @@
-﻿namespace HiLive.API.Models
+﻿// ---------------------------------------------------------------
+// Copyright (c) Coalition of the Good-Hearted Engineers
+// FREE TO USE TO CONNECT THE WORLD
+// ---------------------------------------------------------------
+
+namespace HiLive.API.Models
 {
     public class VideoMetadata
     {
