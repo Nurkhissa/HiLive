@@ -31,5 +31,31 @@ namespace HiLive.API.Controllers
 
             return Ok(videoMetadatas);
         }
+
+        [HttpGet("id/{videoMetdataId}")]
+        public async ValueTask<ActionResult<VideoMetadata>> GetVideoMetadataById(Guid videoMetdataId)
+        {
+            VideoMetadata? videoMetdata = await 
+                _videoMetadatasService.RetrieveVideoMetadataByIdAsync(videoMetdataId);
+
+            return Ok(videoMetdata);
+        }
+
+        [HttpPut]
+        public async ValueTask<ActionResult<VideoMetadata>> PutVideoMetadata(VideoMetadata videoMetadata)
+        {
+            VideoMetadata updateVideoMetadata = await this._videoMetadatasService.ModifyVideoMetadataAsync(videoMetadata);
+
+            return Ok(updateVideoMetadata);
+        }
+
+        [HttpDelete("{videoMetadataId:guid}")]
+        public async ValueTask<ActionResult<VideoMetadata>> DeleteByIdVideoMetadata(Guid videoMetadataId)
+        {
+            VideoMetadata? deleteVideoMetadata = await this._videoMetadatasService.
+                RemoveVideoMetadatasByIdAsync(videoMetadataId);
+
+            return Ok(deleteVideoMetadata);
+        }
     }
 }
