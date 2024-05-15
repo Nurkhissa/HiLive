@@ -1,4 +1,9 @@
-﻿using HiLive.API.Models.VideoMetadatas;
+﻿// ---------------------------------------------------------------
+// Copyright (c) Coalition of the Good-Hearted Engineers
+// FREE TO USE TO CONNECT THE WORLD
+// ---------------------------------------------------------------
+
+using HiLive.API.Models.VideoMetadatas;
 
 namespace HiLive.API.Brokers.Storoges
 {
