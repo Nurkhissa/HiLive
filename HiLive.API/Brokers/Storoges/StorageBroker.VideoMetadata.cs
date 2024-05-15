@@ -3,8 +3,26 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HiLive.API.Brokers.Storoges
 {
-    internal partial class StorageBroker
+    public partial class StorageBroker
     {
-        public DbSet<VideoMetadata> VideoMetadatas {  get; set; }      
+        public DbSet<VideoMetadata> VideoMetadatas {  get; set; }
+
+        public async ValueTask<VideoMetadata> InsertVideoMetadataAsync(VideoMetadata videoMetadata) =>
+        await this.InsertAsync(videoMetadata);
+
+        public IQueryable<VideoMetadata> SelectAllVideoMetadatas() =>
+            this.SelectAll<VideoMetadata>();
+
+        public async ValueTask<VideoMetadata?> SelectVideoMetadataByIdAsync(Guid videoMetadataId) =>
+            await this.SelectAsync<VideoMetadata>(videoMetadataId);
+
+        public async ValueTask<VideoMetadata> UpdateVideoMetadataAsync(VideoMetadata videoMetadata) =>
+            await this.UpdateAsync(videoMetadata);
+
+        public async ValueTask<VideoMetadata?> DeleteVideoMetadataByIdAsync(Guid videoMetadataId)
+        {
+            var maybeVideoMetadata = await SelectVideoMetadataByIdAsync(videoMetadataId);
+            return await this.DeleteAsync(maybeVideoMetadata);
+        }
     }
 }
