@@ -9,26 +9,20 @@ namespace HiLive.API.Brokers.Storoges
 
         public async ValueTask<VideoMetadata> InsertVideoMetadataAsync(VideoMetadata videoMetadata) =>
         await this.InsertAsync(videoMetadata);
-        //Task<VideoMetadata> InsertVideoMetadataAsync(VideoMetadata category);
-
-        //Task<VideoMetadata> IStorageBroker.InsertVideoMetadataAsync(VideoMetadata category)
-        //{
-        //    throw new NotImplementedException();
-        //}
 
         public IQueryable<VideoMetadata> SelectAllVideoMetadatas() =>
             this.SelectAll<VideoMetadata>();
 
-        //public async ValueTask<VideoMetadata?> SelectVideoMetadataByIdAsync(Guid categoryId) =>
-        //    await this.SelectAsync<VideoMetadata>(categoryId);
+        public async ValueTask<VideoMetadata?> SelectVideoMetadataByIdAsync(Guid videoMetadataId) =>
+            await this.SelectAsync<VideoMetadata>(videoMetadataId);
 
-        //public async ValueTask<VideoMetadata> UpdateVideoMetadataAsync(VideoMetadata category) =>
-        //    await this.UpdateAsync(category);
+        public async ValueTask<VideoMetadata> UpdateVideoMetadataAsync(VideoMetadata videoMetadata) =>
+            await this.UpdateAsync(videoMetadata);
 
-        //public async ValueTask<VideoMetadata?> DeleteCategoryByIdAsync(Guid categoryId)
-        //{
-        //    var maybeCategory = await SelectCategoryByIdAsync(categoryId);
-        //    return await this.DeleteAsync(maybeCategory);
-        //}
+        public async ValueTask<VideoMetadata?> DeleteVideoMetadataByIdAsync(Guid videoMetadataId)
+        {
+            var maybeVideoMetadata = await SelectVideoMetadataByIdAsync(videoMetadataId);
+            return await this.DeleteAsync(maybeVideoMetadata);
+        }
     }
 }
