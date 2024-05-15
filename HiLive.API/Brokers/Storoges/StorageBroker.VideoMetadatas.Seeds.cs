@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace HiLive.API.Brokers.Storoges
 {
-    internal partial class StorageBroker
+    public partial class StorageBroker
     {
         private static void SeedVideoMetadatas(EntityTypeBuilder<VideoMetadata> builder)
         {
