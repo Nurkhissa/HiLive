@@ -3,8 +3,6 @@
 // FREE TO USE TO CONNECT THE WORLD
 // ---------------------------------------------------------------
 
-
-
 using Microsoft.AspNetCore.Mvc;
 
 namespace HiLive.API.Controllers
