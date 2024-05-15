@@ -16,21 +16,15 @@ namespace HiLive.API.Services.VideoMetadatas
         public async ValueTask<VideoMetadata> AddVideoMetadataAsync(VideoMetadata category) => 
             await this.storageBroker.InsertVideoMetadataAsync(category);
 
-        public ValueTask<VideoMetadata> ModifyVideoMetadataAsync(VideoMetadata category)
-        {
-            throw new NotImplementedException();
-        }
+        public async ValueTask<VideoMetadata> ModifyVideoMetadataAsync(VideoMetadata category) => 
+            await this.storageBroker.UpdateVideoMetadataAsync(category);
+        public async ValueTask<VideoMetadata?> RemoveVideoMetadatasByIdAsync(Guid categoryId) =>
+        await this.storageBroker.DeleteVideoMetadataByIdAsync(categoryId);
 
-        public async ValueTask<VideoMetadata?> RemoveVideoMetadatasByIdAsync(Guid categoryId)
-        {
-            throw new NotImplementedException();
-        }
+        public IQueryable<VideoMetadata> RetrieveAllVideoMetadatas() => 
+            this.storageBroker.SelectAllVideoMetadatas();
 
-        public IQueryable<VideoMetadata> RetrieveAllVideoMetadatas() => this.storageBroker.SelectAllVideoMetadatas();
-
-        public async ValueTask<VideoMetadata?> RetrieveVideoMetadataByIdAsync(Guid categoryId)
-        {
-            throw new NotImplementedException();
+        public async ValueTask<VideoMetadata?> RetrieveVideoMetadataByIdAsync(Guid categoryId) => 
+            await this.storageBroker.SelectVideoMetadataByIdAsync(categoryId);
         }
-    }
 }
