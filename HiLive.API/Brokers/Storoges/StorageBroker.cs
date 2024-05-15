@@ -64,25 +64,7 @@ namespace HiLive.API.Brokers.Storoges
             return @object;
         }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    var connectionString = this.configuration.
-        //        GetConnectionString("DefaultConnection");
-
-        //    optionsBuilder.UseNpgsql(connectionString);
-        //}
-
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    // configurations
-        //    AddUserConfiguration(modelBuilder);
-        //    AddCategoryConfiguration(modelBuilder);
-        //    AddTransactionsConfiguration(modelBuilder);
-
-        //    // seed data
-        //    SeedUser(modelBuilder.Entity<User>());
-        //    SeedCategory(modelBuilder.Entity<Category>());
-        //    SeedTransaction(modelBuilder.Entity<Transaction>());
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder) => 
+            SeedVideoMetadatas(modelBuilder.Entity<VideoMetadata>());
     }
 }

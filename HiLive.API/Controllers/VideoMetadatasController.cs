@@ -1,4 +1,10 @@
-﻿using HiLive.API.Models.VideoMetadatas;
+﻿// ---------------------------------------------------------------
+// Copyright (c) Coalition of the Good-Hearted Engineers
+// FREE TO USE TO CONNECT THE WORLD
+// ---------------------------------------------------------------
+
+
+using HiLive.API.Models.VideoMetadatas;
 using HiLive.API.Services.VideoMetadatas;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
