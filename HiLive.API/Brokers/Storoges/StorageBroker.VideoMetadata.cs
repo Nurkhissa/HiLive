@@ -5,6 +5,9 @@
 
 using HiLive.API.Models.VideoMetadatas;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace HiLive.API.Brokers.Storoges
 {
@@ -18,7 +21,7 @@ namespace HiLive.API.Brokers.Storoges
         public IQueryable<VideoMetadata> SelectAllVideoMetadatas() =>
             this.SelectAll<VideoMetadata>();
 
-        public async ValueTask<VideoMetadata?> SelectVideoMetadataByIdAsync(Guid videoMetadataId) =>
+        public async ValueTask<VideoMetadata> SelectVideoMetadataByIdAsync(Guid videoMetadataId) =>
             await this.SelectAsync<VideoMetadata>(videoMetadataId);
 
         public async ValueTask<VideoMetadata> UpdateVideoMetadataAsync(VideoMetadata videoMetadata) =>

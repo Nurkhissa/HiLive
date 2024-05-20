@@ -7,6 +7,9 @@ using HiLive.API.Models.VideoMetadatas;
 using HiLive.API.Services.VideoMetadatas;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace HiLive.API.Controllers
 {
