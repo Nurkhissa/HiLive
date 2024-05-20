@@ -5,30 +5,34 @@
 
 using HiLive.API.Models.VideoMetadatas;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using STX.EFxceptions.SqlServer;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace HiLive.API.Brokers.Storoges
 {
     public partial class StorageBroker : EFxceptionsContext, IStorageBroker
     {
-        private readonly IConfiguration _configuration;
+        private readonly IConfiguration configuration;
 
         public StorageBroker(IConfiguration configuration)
         {
-            _configuration = configuration;
+            this.configuration = configuration;
             this.Database.Migrate();
         }
 
         protected override void  OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionString = this._configuration.GetConnectionString(name: "DefaultConnection")!;
+            string connectionString = this.configuration.GetConnectionString(name: "DefaultConnection")!;
             optionsBuilder.UseQueryTrackingBehavior(queryTrackingBehavior: QueryTrackingBehavior.NoTracking);
             optionsBuilder.UseSqlServer(connectionString);
         }
 
         private async ValueTask<T> InsertAsync<T>(T @object)
         {
-            StorageBroker? broker = new StorageBroker(configuration: this._configuration);
+            StorageBroker? broker = new StorageBroker(configuration: this.configuration);
             broker.Entry(entity: @object).State = EntityState.Added;
             await broker.SaveChangesAsync();
 
@@ -37,7 +41,7 @@ namespace HiLive.API.Brokers.Storoges
 
         private IQueryable<T> SelectAll<T>() where T : class
         {
-            StorageBroker? broker = new StorageBroker(configuration: this._configuration);
+            StorageBroker? broker = new StorageBroker(configuration: this.configuration);
             return broker.Set<T>();
         }
 
@@ -46,7 +50,7 @@ namespace HiLive.API.Brokers.Storoges
 
         private async ValueTask<T> UpdateAsync<T>(T @object)
         {
-            StorageBroker? broker = new StorageBroker(configuration: this._configuration);
+            StorageBroker? broker = new StorageBroker(configuration: this.configuration);
             broker.Entry(entity: @object).State = EntityState.Modified;
             await broker.SaveChangesAsync();
 
@@ -55,7 +59,7 @@ namespace HiLive.API.Brokers.Storoges
 
         private async ValueTask<T> DeleteAsync<T>(T @object)
         {
-            StorageBroker? broker = new StorageBroker(configuration: this._configuration);
+            StorageBroker? broker = new StorageBroker(configuration: this.configuration);
             broker.Entry(entity: @object).State = EntityState.Deleted;
             await broker.SaveChangesAsync();
 
@@ -64,5 +68,6 @@ namespace HiLive.API.Brokers.Storoges
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) => 
             SeedVideoMetadatas(builder: modelBuilder.Entity<VideoMetadata>());
+
     }
 }

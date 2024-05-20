@@ -5,6 +5,9 @@
 
 using HiLive.API.Brokers.Storoges;
 using HiLive.API.Services.VideoMetadatas;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 

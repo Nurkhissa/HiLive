@@ -5,6 +5,7 @@
 
 using HiLive.API.Models.VideoMetadatas;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
 
 namespace HiLive.API.Brokers.Storoges
 {

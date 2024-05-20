@@ -3,6 +3,8 @@
 // FREE TO USE TO CONNECT THE WORLD
 // ---------------------------------------------------------------
 
+using System;
+
 namespace HiLive.API.Models.VideoMetadatas
 {
     public class VideoMetadata
