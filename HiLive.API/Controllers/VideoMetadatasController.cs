@@ -3,7 +3,6 @@
 // FREE TO USE TO CONNECT THE WORLD
 // ---------------------------------------------------------------
 
-
 using HiLive.API.Models.VideoMetadatas;
 using HiLive.API.Services.VideoMetadatas;
 using Microsoft.AspNetCore.Http;
@@ -11,57 +10,58 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HiLive.API.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route(template: "api/[controller]/[action]")]
     [ApiController]
     public class VideoMetadatasController : ControllerBase
     {
-        private readonly IVideoMetadatasService _videoMetadatasService;
+        private readonly IVideoMetadatasService videoMetadatasService;
 
-        public VideoMetadatasController(IVideoMetadatasService videoMetadatasService)
-        {
-            _videoMetadatasService = videoMetadatasService;
-        }
+        public VideoMetadatasController(IVideoMetadatasService videoMetadatasService) 
+            => this.videoMetadatasService = videoMetadatasService;
 
         [HttpPost]
         public async ValueTask<ActionResult<VideoMetadata>> PostVideoMetadata(VideoMetadata videoMetadata)
         {
-            VideoMetadata addedVideoMetadata = await _videoMetadatasService.AddVideoMetadataAsync(videoMetadata);
+            VideoMetadata addedVideoMetadata = 
+                await videoMetadatasService.AddVideoMetadataAsync(category: videoMetadata);
 
-            return Ok(addedVideoMetadata);
+            return Ok(value: addedVideoMetadata);
         }
 
         [HttpGet]
         public ActionResult<IQueryable<VideoMetadata>> GetAllVideoMetadatas()
         {
-            IQueryable<VideoMetadata> videoMetadatas = this._videoMetadatasService.RetrieveAllVideoMetadatas();
+            IQueryable<VideoMetadata> videoMetadatas = 
+                this.videoMetadatasService.RetrieveAllVideoMetadatas();
 
-            return Ok(videoMetadatas);
+            return Ok(value: videoMetadatas);
         }
 
-        [HttpGet("id/{videoMetdataId}")]
+        [HttpGet(template: "id/{videoMetdataId}")]
         public async ValueTask<ActionResult<VideoMetadata>> GetVideoMetadataById(Guid videoMetdataId)
         {
-            VideoMetadata? videoMetdata = await 
-                _videoMetadatasService.RetrieveVideoMetadataByIdAsync(videoMetdataId);
+            VideoMetadata? videoMetdata = 
+                await videoMetadatasService.RetrieveVideoMetadataByIdAsync(categoryId: videoMetdataId);
 
-            return Ok(videoMetdata);
+            return Ok(value: videoMetdata);
         }
 
         [HttpPut]
         public async ValueTask<ActionResult<VideoMetadata>> PutVideoMetadata(VideoMetadata videoMetadata)
         {
-            VideoMetadata updateVideoMetadata = await this._videoMetadatasService.ModifyVideoMetadataAsync(videoMetadata);
+            VideoMetadata updateVideoMetadata = 
+                await this.videoMetadatasService.ModifyVideoMetadataAsync(category: videoMetadata);
 
-            return Ok(updateVideoMetadata);
+            return Ok(value: updateVideoMetadata);
         }
 
-        [HttpDelete("{videoMetadataId:guid}")]
+        [HttpDelete(template: "{videoMetadataId:guid}")]
         public async ValueTask<ActionResult<VideoMetadata>> DeleteByIdVideoMetadata(Guid videoMetadataId)
         {
-            VideoMetadata? deleteVideoMetadata = await this._videoMetadatasService.
-                RemoveVideoMetadatasByIdAsync(videoMetadataId);
+            VideoMetadata? deleteVideoMetadata = 
+                await this.videoMetadatasService.RemoveVideoMetadatasByIdAsync(categoryId: videoMetadataId);
 
-            return Ok(deleteVideoMetadata);
+            return Ok(value: deleteVideoMetadata);
         }
     }
 }

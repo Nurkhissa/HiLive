@@ -3,9 +3,6 @@
 // FREE TO USE TO CONNECT THE WORLD
 // ---------------------------------------------------------------
 
-
-
-
 using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
