@@ -3,7 +3,7 @@
 // FREE TO USE TO CONNECT THE WORLD
 // ---------------------------------------------------------------
 
-using HiLive.API.Brokers.Loggings;
+//using HiLive.API.Brokers.Loggings;
 using HiLive.API.Brokers.Storoges;
 using HiLive.API.Models.VideoMetadatas;
 using System;
@@ -15,14 +15,14 @@ namespace HiLive.API.Services.VideoMetadatas
     public class VideoMetadatasService : IVideoMetadatasService
     {
         private readonly IStorageBroker storageBroker;
-        private readonly ILoggingBroker loggingBroker;
+        //private readonly ILoggingBroker loggingBroker;
 
         public VideoMetadatasService(
-            IStorageBroker storageBroker, 
-            ILoggingBroker loggingBroker)
+            IStorageBroker storageBroker)
+            //ILoggingBroker loggingBroker)
         {
             this.storageBroker = storageBroker;
-            this.loggingBroker = loggingBroker;
+            //this.loggingBroker = loggingBroker;
         }
 
         public async ValueTask<VideoMetadata> AddVideoMetadataAsync(VideoMetadata category) => 

@@ -14,8 +14,8 @@ namespace HiLive.API.Services.VideoMetadatas
     {
         ValueTask<VideoMetadata> AddVideoMetadataAsync(VideoMetadata category);
         IQueryable<VideoMetadata> RetrieveAllVideoMetadatas();
-        ValueTask<VideoMetadata?> RetrieveVideoMetadataByIdAsync(Guid categoryId);
+        ValueTask<VideoMetadata> RetrieveVideoMetadataByIdAsync(Guid categoryId);
         ValueTask<VideoMetadata> ModifyVideoMetadataAsync(VideoMetadata category);
-        ValueTask<VideoMetadata?> RemoveVideoMetadatasByIdAsync(Guid categoryId);
+        ValueTask<VideoMetadata> RemoveVideoMetadatasByIdAsync(Guid categoryId);
     }
 }
