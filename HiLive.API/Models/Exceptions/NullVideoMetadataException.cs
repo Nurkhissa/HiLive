@@ -3,16 +3,14 @@
 // FREE TO USE TO CONNECT THE WORLD
 // ---------------------------------------------------------------
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xeptions;
 
-namespace HiLive.UnitTest
+namespace HiLive.API.Models.Exceptions
 {
-    [TestClass]
-    public class UnitTest1
+    public class NullVideoMetadataException : Xeption
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-        }
+        public NullVideoMetadataException(string message)
+            : base(message: message)
+        { }
     }
 }

@@ -7,7 +7,6 @@ using HiLive.API.Models.VideoMetadatas;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using STX.EFxceptions.SqlServer;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -23,7 +22,7 @@ namespace HiLive.API.Brokers.Storoges
             this.Database.Migrate();
         }
 
-        protected override void  OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string connectionString = this.configuration.GetConnectionString(name: "DefaultConnection")!;
             optionsBuilder.UseQueryTrackingBehavior(queryTrackingBehavior: QueryTrackingBehavior.NoTracking);
@@ -66,7 +65,7 @@ namespace HiLive.API.Brokers.Storoges
             return @object;
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) => 
+        protected override void OnModelCreating(ModelBuilder modelBuilder) =>
             SeedVideoMetadatas(builder: modelBuilder.Entity<VideoMetadata>());
 
     }

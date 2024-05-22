@@ -5,9 +5,11 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{45889ECE-E082-47CD-98C4-3D53921A8AEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiLive.API", "HiLive.API\HiLive.API.csproj", "{8FA135A8-AFD7-46D6-B194-1E01212E4114}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HiLive.API", "HiLive.API\HiLive.API.csproj", "{8FA135A8-AFD7-46D6-B194-1E01212E4114}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiLive.UnitTest", "HiLive.UnitTest\HiLive.UnitTest.csproj", "{5AA7D17F-65A7-4D49-A474-8B712A8BE485}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiLive.Core.Api.Infrastucture.Build", "HiLive.Core.Api.Infrastucture.Build\HiLive.Core.Api.Infrastucture.Build.csproj", "{87BBE49B-A4FA-4C5C-8FFD-5EEB054B146E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{5AA7D17F-65A7-4D49-A474-8B712A8BE485}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AA7D17F-65A7-4D49-A474-8B712A8BE485}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AA7D17F-65A7-4D49-A474-8B712A8BE485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87BBE49B-A4FA-4C5C-8FFD-5EEB054B146E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87BBE49B-A4FA-4C5C-8FFD-5EEB054B146E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87BBE49B-A4FA-4C5C-8FFD-5EEB054B146E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87BBE49B-A4FA-4C5C-8FFD-5EEB054B146E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +36,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8FA135A8-AFD7-46D6-B194-1E01212E4114} = {45889ECE-E082-47CD-98C4-3D53921A8AEB}
 		{5AA7D17F-65A7-4D49-A474-8B712A8BE485} = {45889ECE-E082-47CD-98C4-3D53921A8AEB}
+		{87BBE49B-A4FA-4C5C-8FFD-5EEB054B146E} = {45889ECE-E082-47CD-98C4-3D53921A8AEB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AFF60663-8B98-4FF5-B9F3-970619A6BFA7}

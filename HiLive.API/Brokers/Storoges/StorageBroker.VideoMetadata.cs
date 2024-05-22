@@ -13,7 +13,7 @@ namespace HiLive.API.Brokers.Storoges
 {
     public partial class StorageBroker
     {
-        public DbSet<VideoMetadata> VideoMetadatas {  get; set; }
+        public DbSet<VideoMetadata> VideoMetadatas { get; set; }
 
         public async ValueTask<VideoMetadata> InsertVideoMetadataAsync(VideoMetadata videoMetadata) =>
         await this.InsertAsync(videoMetadata);

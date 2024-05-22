@@ -4,12 +4,14 @@
 // ---------------------------------------------------------------
 
 using System;
+using Xeptions;
 
-namespace HiLive.API.Brokers.Loggings
+namespace HiLive.API.Models.Exceptions
 {
-    public interface ILoggingBroker
+    public class InvalidVideoMetadataException : Exception
     {
-        void LogCriticalError(Exception exception);
-        void LogError(Exception exception);
+        public InvalidVideoMetadataException(string message)
+            : base(message)
+        { }
     }
 }
