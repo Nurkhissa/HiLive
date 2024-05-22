@@ -5,7 +5,6 @@
 
 using HiLive.API.Models.VideoMetadatas;
 using HiLive.API.Services.VideoMetadatas;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
@@ -19,13 +18,13 @@ namespace HiLive.API.Controllers
     {
         private readonly IVideoMetadatasService videoMetadatasService;
 
-        public VideoMetadatasController(IVideoMetadatasService videoMetadatasService) 
+        public VideoMetadatasController(IVideoMetadatasService videoMetadatasService)
             => this.videoMetadatasService = videoMetadatasService;
 
         [HttpPost]
         public async ValueTask<ActionResult<VideoMetadata>> PostVideoMetadata(VideoMetadata videoMetadata)
         {
-            VideoMetadata addedVideoMetadata = 
+            VideoMetadata addedVideoMetadata =
                 await videoMetadatasService.AddVideoMetadataAsync(category: videoMetadata);
 
             return Ok(value: addedVideoMetadata);
@@ -34,7 +33,7 @@ namespace HiLive.API.Controllers
         [HttpGet]
         public ActionResult<IQueryable<VideoMetadata>> GetAllVideoMetadatas()
         {
-            IQueryable<VideoMetadata> videoMetadatas = 
+            IQueryable<VideoMetadata> videoMetadatas =
                 this.videoMetadatasService.RetrieveAllVideoMetadatas();
 
             return Ok(value: videoMetadatas);
@@ -43,7 +42,7 @@ namespace HiLive.API.Controllers
         [HttpGet(template: "id/{videoMetdataId}")]
         public async ValueTask<ActionResult<VideoMetadata>> GetVideoMetadataById(Guid videoMetdataId)
         {
-            VideoMetadata? videoMetdata = 
+            VideoMetadata? videoMetdata =
                 await videoMetadatasService.RetrieveVideoMetadataByIdAsync(categoryId: videoMetdataId);
 
             return Ok(value: videoMetdata);
@@ -52,7 +51,7 @@ namespace HiLive.API.Controllers
         [HttpPut]
         public async ValueTask<ActionResult<VideoMetadata>> PutVideoMetadata(VideoMetadata videoMetadata)
         {
-            VideoMetadata updateVideoMetadata = 
+            VideoMetadata updateVideoMetadata =
                 await this.videoMetadatasService.ModifyVideoMetadataAsync(category: videoMetadata);
 
             return Ok(value: updateVideoMetadata);
@@ -61,7 +60,7 @@ namespace HiLive.API.Controllers
         [HttpDelete(template: "{videoMetadataId:guid}")]
         public async ValueTask<ActionResult<VideoMetadata>> DeleteByIdVideoMetadata(Guid videoMetadataId)
         {
-            VideoMetadata? deleteVideoMetadata = 
+            VideoMetadata? deleteVideoMetadata =
                 await this.videoMetadatasService.RemoveVideoMetadatasByIdAsync(categoryId: videoMetadataId);
 
             return Ok(value: deleteVideoMetadata);

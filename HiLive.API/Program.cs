@@ -17,6 +17,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<StorageBroker>();
 builder.Services.AddTransient<IStorageBroker, StorageBroker>();
 builder.Services.AddTransient<IVideoMetadatasService, VideoMetadatasService>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

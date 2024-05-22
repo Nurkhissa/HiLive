@@ -23,7 +23,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<InternalsVisibleTo Include="HiLive.UnitTest"/>
+		<InternalsVisibleTo Include="HiLive.UnitTest" />
 	</ItemGroup>
 
 </Project>
