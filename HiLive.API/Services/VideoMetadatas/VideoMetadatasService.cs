@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace HiLive.API.Services.VideoMetadatas
 {
-    public class VideoMetadatasService : IVideoMetadatasService
+    public partial class VideoMetadatasService : IVideoMetadatasService
     {
         private readonly IStorageBroker storageBroker;
         private readonly ILoggingBroker loggingBroker;
